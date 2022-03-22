@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerInteractionRaycaster : MonoBehaviour
+public class PlayerRaycast : MonoBehaviour
 {
     [SerializeField] private int rayLength = 3;
     [SerializeField] private KeyCode interactionKey = KeyCode.Mouse0;
@@ -9,18 +9,18 @@ public class PlayerInteractionRaycaster : MonoBehaviour
 
     private void Update()
     {
-        GameObject rayCastObject = GetRayCastObject();
-        if (rayCastObject != null)
+        if (Input.GetKeyDown(interactionKey))
         {
-            _raycastButton = rayCastObject.GetComponent<InteractableButton>();
+            GameObject rayCastObject = GetRayCastObject();
+            if (rayCastObject != null)
+            {
+                if (rayCastObject.GetComponent<InteractableButton>() != null)
+                {
+                    _raycastButton = rayCastObject.GetComponent<InteractableButton>();
+                    _raycastButton.ActivateButton();
+                }
+            }
         }
-        
-        if (Input.GetKeyDown(interactionKey) && _raycastButton != null)
-        {
-            _raycastButton.ActivateButton();
-        }
-
-        if(rayCastObject){print(rayCastObject.name);}
     }
 
     //returns the object the player is looking at

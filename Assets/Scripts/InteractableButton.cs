@@ -2,20 +2,19 @@ using UnityEngine;
 
 public class InteractableButton : MonoBehaviour
 {
-    [SerializeField] private Door _door;
-    private bool _doorOpen;
+    private bool _isActive;
 
     public void ActivateButton()
     {
-        print("DoorState:" + _doorOpen);
+        print("Active:" + _isActive);
         ToggleState();
     }
 
     private void ToggleState()
     {
         Outline outline = GetComponent<Outline>();
-        _doorOpen = !_doorOpen;
-
-        outline.OutlineColor = _doorOpen ? Color.green : Color.red;
+        _isActive = !_isActive;
+        
+        outline.OutlineColor = _isActive ? Color.green : Color.red;
     }
 }
