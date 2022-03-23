@@ -9,22 +9,30 @@ public class PlayerRaycast : MonoBehaviour
 
     private void Update()
     {
+        GameObject rayCastHitObject = GetRayCastHitObject();
+        
+        
         if (Input.GetKeyDown(interactionKey))
         {
-            GameObject rayCastObject = GetRayCastObject();
-            if (rayCastObject != null)
+            if (rayCastHitObject != null)
             {
-                if (rayCastObject.GetComponent<InteractableButton>() != null)
+                print("Clicked on: " + rayCastHitObject.name);
+                
+                if (rayCastHitObject.GetComponent<InteractableButton>() != null)
                 {
-                    _raycastButton = rayCastObject.GetComponent<InteractableButton>();
+                    _raycastButton = rayCastHitObject.GetComponent<InteractableButton>();
                     _raycastButton.ActivateButton();
+                }else if (rayCastHitObject.GetComponent<Interactable>() != null)
+                {
+                    print("Interactable Triggered");
+                    rayCastHitObject.GetComponent<Interactable>().Interact();
                 }
             }
         }
     }
 
     //returns the object the player is looking at
-    private GameObject GetRayCastObject()
+    private GameObject GetRayCastHitObject()
     {
         Vector3 forward = transform.TransformDirection(Vector3.forward);
         
@@ -34,6 +42,19 @@ public class PlayerRaycast : MonoBehaviour
         }
         return null;
     }
+
+    //add an outline to an object
+    private void SetObjectOutlineColor(GameObject obj, Color color)
+    {
+        //check if object already has an outline
+        if (obj.GetComponent<Outline>() != null)
+        {
+            Outline outline = obj.GetComponent<Outline>();
+            outline.OutlineColor = color;
+            outline.OutlineWidth = 10;
+            outline.OutlineMode = Outline.Mode.OutlineVisible;
+        }
+    }
     
     private void OnDrawGizmos()
     {
@@ -42,6 +63,4 @@ public class PlayerRaycast : MonoBehaviour
         Vector3 forward = player.TransformDirection(Vector3.forward);
         Gizmos.DrawRay(player.position, forward * rayLength);
     }
-    
-    
 }
