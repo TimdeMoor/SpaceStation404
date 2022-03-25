@@ -30,7 +30,7 @@ namespace Gameplay
             _puzzleViewActive = _vCam.enabled;
             playerMovement.enabled = !_vCam.enabled;
             playerCamControl.enabled = !_vCam.enabled;
-            Invoke("TogglePlayerModel", .5f);
+            Invoke(nameof(TogglePlayerModel), .5f);
         }
 
         public void TogglePlayerModel()
