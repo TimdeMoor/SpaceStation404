@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TMPro;
 using UnityEngine;
 
 namespace Gameplay
@@ -8,7 +9,7 @@ namespace Gameplay
     public class DialController : MonoBehaviour
     {
         private List<Dial> _dials;
-        private TextMesh _codeText;
+        private TextMeshPro _codeText;
         private string _currentCode;
 
 
@@ -16,7 +17,7 @@ namespace Gameplay
         void Start()
         {
             _sb = new StringBuilder();
-            _codeText = GetComponentInChildren<TextMesh>();
+            _codeText = GetComponentInChildren<TextMeshPro>();
             _dials = GetComponentsInChildren<Dial>().ToList();
         }
     

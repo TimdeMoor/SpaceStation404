@@ -7,6 +7,13 @@ namespace Gameplay
     {
         [SerializeField] private List<PressureGauge> Gauges;
         [SerializeField] private List<Dial> Dials;
+        [SerializeField] private string _solutionCombination = "123456"; //default value of 123456
+
+        void Start()
+        {
+            SetSolution();
+        }
+        
         void Update()
         {
             SetGauges();
@@ -19,6 +26,17 @@ namespace Gameplay
             {
                 Gauges[i].SetValue(dial.GetValue());
                 i++;
+            }
+        }
+
+        private void SetSolution()
+        {
+            int i = 0;
+            foreach (PressureGauge g in Gauges)
+            {
+                string newTarget = _solutionCombination[i].ToString() + _solutionCombination[i + 1].ToString();
+                g.SetTargetValue(newTarget);
+                i += 2;
             }
         }
     }
