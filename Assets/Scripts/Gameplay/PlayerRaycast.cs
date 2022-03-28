@@ -19,7 +19,7 @@ namespace Gameplay
                 //check if there is an object being looked at
                 if (rayCastHitObject != null)
                 {
-                    print("Clicked on: " + rayCastHitObject.name);
+                    //print("Clicked on: " + rayCastHitObject.name);
                 
                     //if the object being looked at is a button
                     if (rayCastHitObject.GetComponent<InteractableButton>() != null)
