@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9222785461983909591}
   - component: {fileID: 5114484220131978085}
   - component: {fileID: 9113013907052874346}
+  - component: {fileID: 1053759543335811193}
   m_Layer: 0
   m_Name: KeypadKey
   m_TagString: Untagged
@@ -96,6 +97,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1053759543335811193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344457007841893519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac255e388a2b7464f8cf59a80d49fb3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7890978824411071031
 GameObject:
   m_ObjectHideFlags: 0
