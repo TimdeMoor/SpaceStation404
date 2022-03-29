@@ -1,7 +1,7 @@
-using System;
+using Gameplay.Puzzles.PressureGauges;
 using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.Puzzles.Shared
 {
     public class ClickHandler : MonoBehaviour
     {

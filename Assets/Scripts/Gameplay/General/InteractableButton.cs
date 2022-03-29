@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.General
 {
     public class InteractableButton : MonoBehaviour
     {
@@ -15,9 +15,7 @@ namespace Gameplay
         {
             Outline outline = GetComponent<Outline>();
             _isActive = !_isActive;
-        
-            //if active -> color is green
-            //else color is red
+            
             outline.OutlineColor = _isActive ? Color.green : Color.red;
         }
     }

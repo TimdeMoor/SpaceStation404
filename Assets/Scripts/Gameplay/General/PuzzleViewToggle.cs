@@ -1,14 +1,18 @@
+using Cinemachine;
 using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.General
 {
     public class PuzzleViewToggle : MonoBehaviour
     {
+        [SerializeField] private CinemachineVirtualCamera vCam;
         private PuzzleManager _puzzle;
+        
 
         private void Start()
         {
             _puzzle = GetComponentInParent<PuzzleManager>();
+            vCam.enabled = false;
         }
     
     

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.General
 {
     public class CameraControl : MonoBehaviour
     {
@@ -12,7 +12,7 @@ namespace Gameplay
     
         void Start()
         {
-            //Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked;
         }
     
         void Update()

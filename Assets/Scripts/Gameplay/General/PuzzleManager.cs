@@ -1,15 +1,15 @@
 using Cinemachine;
 using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.General
 {
     public class PuzzleManager : MonoBehaviour
     {
-        [SerializeField] Movement playerMovement;
-        [SerializeField] CameraControl playerCamControl;
-        [SerializeField] GameObject playerModel;
+        [SerializeField] private Movement playerMovement;
+        [SerializeField] private CameraControl playerCamControl;
+        [SerializeField] private GameObject playerModel;
         private CinemachineVirtualCamera _vCam;
-        private bool _puzzleViewActive = false;
+        private bool _puzzleViewActive;
         void Start()
         {
             _vCam = GetComponentInChildren<CinemachineVirtualCamera>();
@@ -26,10 +26,13 @@ namespace Gameplay
     
         public void TogglePuzzleView()
         {
-            _vCam.enabled = !_vCam.enabled;
-            _puzzleViewActive = _vCam.enabled;
-            playerMovement.enabled = !_vCam.enabled;
-            playerCamControl.enabled = !_vCam.enabled;
+            _puzzleViewActive = !_puzzleViewActive;
+            _vCam.enabled = _puzzleViewActive;
+            playerMovement.enabled = !_puzzleViewActive;
+            playerCamControl.enabled = !_puzzleViewActive;
+
+            Cursor.lockState = _puzzleViewActive ? CursorLockMode.Confined : CursorLockMode.Locked;
+            
             Invoke(nameof(TogglePlayerModel), .5f);
         }
 

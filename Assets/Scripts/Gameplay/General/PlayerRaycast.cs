@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.General
 {
     public class PlayerRaycast : MonoBehaviour
     {

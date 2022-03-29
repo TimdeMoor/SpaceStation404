@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.Puzzles.PressureGauges
 {
     public class Dial : MonoBehaviour
     {
@@ -9,14 +9,7 @@ namespace Gameplay
         [SerializeField] private float maxValue = 99f;
 
         private float _currentValue;
-
-        float rotationSpeed = 0.2f;
-        private Renderer _renderer;
-
-        void Start()
-        {
-            _renderer = GetComponent<Renderer>();
-        }
+        
         
         public int GetValue()
         {

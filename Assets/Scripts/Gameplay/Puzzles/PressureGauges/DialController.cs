@@ -4,14 +4,13 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.Puzzles.PressureGauges
 {
     public class DialController : MonoBehaviour
     {
         private List<Dial> _dials;
         private TextMeshPro _codeText;
         private string _currentCode;
-
 
         private StringBuilder _sb;
         void Start()

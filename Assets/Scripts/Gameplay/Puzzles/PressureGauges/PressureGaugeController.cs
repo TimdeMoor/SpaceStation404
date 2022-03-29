@@ -1,8 +1,8 @@
-using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
-namespace Gameplay
+namespace Gameplay.Puzzles.PressureGauges
 {
     public class PressureGaugeController : MonoBehaviour
     {
