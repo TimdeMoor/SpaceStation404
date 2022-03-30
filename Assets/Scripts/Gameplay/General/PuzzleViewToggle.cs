@@ -5,20 +5,50 @@ namespace Gameplay.General
 {
     public class PuzzleViewToggle : MonoBehaviour
     {
-        [SerializeField] private CinemachineVirtualCamera vCam;
-        private PuzzleManager _puzzle;
+        [SerializeField] private GameObject vCamParent;
+        [SerializeField] private GameObject playerParent;
         
+        private Movement _playerMovement;
+        private CameraControl _playerCamControl;
+
+        private CinemachineVirtualCamera _vCam;
+        private bool _puzzleViewActive;
+
 
         private void Start()
         {
-            _puzzle = GetComponentInParent<PuzzleManager>();
-            vCam.enabled = false;
+            _vCam = vCamParent.GetComponent<CinemachineVirtualCamera>();
+            _vCam.enabled = false;
+
+            _playerMovement = playerParent.GetComponent<Movement>();
+            _playerCamControl = playerParent.GetComponentInChildren<CameraControl>();
         }
     
     
         public void Interact()
         {
-            _puzzle.TogglePuzzleView();
+            TogglePuzzleView();
+        }
+        
+        void Update()
+        {
+            //if the player presses tab while in the puzzleView
+            if (_puzzleViewActive && Input.GetKeyDown(KeyCode.Tab))
+            {
+                TogglePuzzleView();
+            }
+        }
+    
+        private void TogglePuzzleView()
+        {
+            _puzzleViewActive = !_puzzleViewActive;
+            
+            _vCam.enabled = _puzzleViewActive;
+            _playerMovement.enabled = !_puzzleViewActive;
+            _playerCamControl.enabled = !_puzzleViewActive;
+            //playerModel.SetActive(!_puzzleViewActive);
+            
+            Cursor.lockState = _puzzleViewActive ? CursorLockMode.Confined : CursorLockMode.Locked;
         }
     }
 }

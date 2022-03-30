@@ -30,7 +30,6 @@ namespace Gameplay.General
                     //if the object being looked at is a generic interactable
                     else if (rayCastHitObject.GetComponent<PuzzleViewToggle>() != null)
                     {
-                        print("Interactable Triggered");
                         rayCastHitObject.GetComponent<PuzzleViewToggle>().Interact();
                     }
                 }

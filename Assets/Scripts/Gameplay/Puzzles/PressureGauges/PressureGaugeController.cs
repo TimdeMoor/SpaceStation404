@@ -12,11 +12,5 @@ namespace Gameplay.Puzzles.PressureGauges
         {
             _gauges = GetComponentsInChildren<PressureGauge>().ToList();
         }
-
-        
-        void Update()
-        {
-        
-        }
     }
 }

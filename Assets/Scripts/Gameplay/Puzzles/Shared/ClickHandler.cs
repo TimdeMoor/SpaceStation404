@@ -1,15 +1,16 @@
 using Gameplay.Puzzles.PressureGauges;
+using TMPro;
 using UnityEngine;
 
 namespace Gameplay.Puzzles.Shared
 {
     public class ClickHandler : MonoBehaviour
     {
-        private TextMesh _textMesh;
+        private TextMeshPro _textMesh;
         private KeyPadManager _keypad;
         void Start()
         {
-            _textMesh = GetComponentInChildren<TextMesh>();
+            _textMesh = GetComponentInChildren<TextMeshPro>();
             _keypad = GetComponentInParent<KeyPadManager>();
         }
 

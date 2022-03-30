@@ -11,12 +11,12 @@ namespace Gameplay.Puzzles.PressureGauges
         private float minPos = -2.2f;
         private float maxPos = 2.2f; 
         
-        [Range(0f, 99f)][SerializeField] private float _value;
-        [Range(0f, 99f)][SerializeField] private float _targetValue;
+        [Range(0f, 99f)][SerializeField] private float value;
+        [Range(0f, 99f)][SerializeField] private float targetValue;
 
         private Material _pressureIndicatorMaterial; 
-        private int startingLightFlickerInterval = 30; //in frames -> 60 = 1sec
-        private int _elapsedFrames = 0;
+        //private int startingLightFlickerInterval = 30; //in frames -> 60 = 1sec
+        //private int _elapsedFrames = 0;
 
         void Start()
         {
@@ -29,58 +29,40 @@ namespace Gameplay.Puzzles.PressureGauges
             SetPressureIndicator();
         }
 
-        private void FixedUpdate()
-        {
-            _elapsedFrames++;
-        }
+        //private void FixedUpdate()
+        //{
+        //    _elapsedFrames++;
+        //}
 
-        void SetPosition()
+        private void SetPosition()
         {
-            int valuePercentage = Mathf.RoundToInt(_value);
+            int valuePercentage = Mathf.RoundToInt(value);
             float minmaxDifference = maxPos - minPos;
             Vector3 currentPos = gaugeIndicator.transform.localPosition;
             
             var newZPos = (minmaxDifference/100f) * valuePercentage;
-            gaugeIndicator.transform.localPosition = 
-                new Vector3(currentPos.x, currentPos.y, newZPos);
+            gaugeIndicator.transform.localPosition = new Vector3(currentPos.x, currentPos.y, newZPos);
         }
 
         public void SetTargetValue(string newTarget)
         {
-            _targetValue = Convert.ToInt16(newTarget);
+            targetValue = Convert.ToInt16(newTarget);
         }
 
-        void SetPressureIndicator()
+        private void SetPressureIndicator()
         {
-            if (Mathf.Round(_value) == _targetValue)
-            {
-                _pressureIndicatorMaterial.color = Color.white;
-            }
-            else
-            {
-                if (_elapsedFrames >= startingLightFlickerInterval)
-                {
-                    ToggleIndicatorLight();
-                    _elapsedFrames = 0;
-                }
-            }
+            //compare value and targetValue
+            _pressureIndicatorMaterial.color = Math.Abs(Mathf.Round(value) - targetValue) < float.Epsilon ? Color.green : Color.red;
         }
 
         public void SetValue(float newValue)
         {
-            _value = newValue;
+            value = newValue;
         }
 
-        private void ToggleIndicatorLight()
-        {
-            if (_pressureIndicatorMaterial.color == Color.white)
-            {
-                _pressureIndicatorMaterial.color = Color.black;
-            }
-            else
-            {
-                _pressureIndicatorMaterial.color = Color.white;
-            }
-        }
+        //private void ToggleIndicatorLight()
+        //{
+        //    _pressureIndicatorMaterial.color = _pressureIndicatorMaterial.color == Color.red ? Color.green : Color.red;
+        //}
     }
 }
