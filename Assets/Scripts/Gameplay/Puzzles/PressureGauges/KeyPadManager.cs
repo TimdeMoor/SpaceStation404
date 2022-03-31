@@ -9,11 +9,11 @@ namespace Gameplay.Puzzles.PressureGauges
     public class KeyPadManager : MonoBehaviour
     {
         [SerializeField] private string keypadTemplate;
-        [SerializeField] private TextMeshPro keyPadScreenText;
-        [SerializeField] private string solution;
+        [SerializeField] private TextMeshPro keyPadScreenText; 
         [SerializeField] private GameObject greenIndicator;
         [SerializeField] private GameObject redIndicator;
-        
+
+        private string _solution;
         private string _screenText;
         private int _maxLength = 6;
         private int _currentLength;
@@ -41,6 +41,11 @@ namespace Gameplay.Puzzles.PressureGauges
             }
         }
 
+        public void SetSolution(string newSolution)
+        {
+            _solution = newSolution;
+        }
+
         public void AddToScreen(string toAdd)
         {
             //check if a character can be added and if the puzzle is solved
@@ -57,7 +62,7 @@ namespace Gameplay.Puzzles.PressureGauges
 
         private void CheckSolution()
         {
-            _solved = keyPadScreenText.text == solution;
+            _solved = keyPadScreenText.text == _solution;
         }
 
         private void Update()
