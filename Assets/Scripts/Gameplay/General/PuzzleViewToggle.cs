@@ -10,6 +10,7 @@ namespace Gameplay.General
         
         private Movement _playerMovement;
         private CameraControl _playerCamControl;
+        private GameObject _playerModel;
 
         private CinemachineVirtualCamera _vCam;
         private bool _puzzleViewActive;
@@ -22,6 +23,8 @@ namespace Gameplay.General
 
             _playerMovement = playerParent.GetComponent<Movement>();
             _playerCamControl = playerParent.GetComponentInChildren<CameraControl>();
+
+            _playerModel = playerParent.GetComponentInChildren<Animator>().gameObject;
         }
     
     
@@ -46,7 +49,7 @@ namespace Gameplay.General
             _vCam.enabled = _puzzleViewActive;
             _playerMovement.enabled = !_puzzleViewActive;
             _playerCamControl.enabled = !_puzzleViewActive;
-            //playerModel.SetActive(!_puzzleViewActive);
+            _playerModel.SetActive(!_puzzleViewActive);
             
             Cursor.lockState = _puzzleViewActive ? CursorLockMode.Confined : CursorLockMode.Locked;
         }
