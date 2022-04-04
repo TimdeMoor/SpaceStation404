@@ -4,7 +4,7 @@ namespace Gameplay.General
 {
     public class CameraControl : MonoBehaviour
     {
-        [SerializeField] private float mouseSensitivity = 100f;
+        [Range(0.1f, 2f)][SerializeField] private float mouseSensitivity = .6f;
         [SerializeField] private Transform player;
 
         private float _mouseX;
@@ -30,8 +30,8 @@ namespace Gameplay.General
 
         private void ApplyRotation()
         {
-            player.Rotate(Vector3.up * _mouseX);
-            player.Rotate(Vector3.left * _mouseY);
+            player.Rotate(Vector3.up * _mouseX / Time.deltaTime);
+            player.Rotate(Vector3.left * _mouseY / Time.deltaTime);
         }
     }
 }

@@ -7,11 +7,11 @@ namespace Gameplay.Puzzles.PressureGauges
     {
         [SerializeField] private List<PressureGauge> Gauges;
         [SerializeField] private List<Dial> Dials;
-        private string _solutionCombination;
+        private string _solutionCombination = string.Empty;
 
         void Start()
         {
-            SetSolution();
+            //SetSolution();
         }
         
         void Update()
@@ -43,6 +43,7 @@ namespace Gameplay.Puzzles.PressureGauges
         public void SetSolution(string newSolution)
         {
             _solutionCombination = newSolution;
+            SetSolution();
         }
     }
 }

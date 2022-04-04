@@ -4,8 +4,9 @@ namespace Gameplay.General
 {
     public class Movement : MonoBehaviour
     {
-        [SerializeField] private float speed = 12f;
-        private float _speedMult;
+        [SerializeField] private float moveSpeed = 8f;
+        private float _speedMultiplier;
+        private float _rotationMultiplier = 5f;
 
         private Transform _playerTransform;
         private CharacterController _controller;
@@ -27,7 +28,7 @@ namespace Gameplay.General
 
         private void SetupVariables()
         {
-            _speedMult = speed * Time.deltaTime;
+            _speedMultiplier = moveSpeed * Time.deltaTime;
         
             _playerTransform = transform;
             _controller = GetComponent<CharacterController>();
@@ -52,16 +53,16 @@ namespace Gameplay.General
         {
             //Handles Left/Right and Front/Back movement
             Vector3 newLocation = _playerTransform.right * _newX + _playerTransform.forward * _newZ;
-            _controller.Move(newLocation * _speedMult);
+            _controller.Move(newLocation * _speedMultiplier);
         
             //Handles up and down movement
-            transform.Translate(0,_upDownAxis * _speedMult, 0);
+            transform.Translate(0,_upDownAxis * _speedMultiplier, 0);
         }
 
         private void ApplyRotation()
         {
             //Handles roll rotation
-            transform.Rotate(0, 0, _rollAxis);
+            transform.Rotate(0, 0, _rollAxis * _speedMultiplier * _rotationMultiplier);
         }
     }
 }
