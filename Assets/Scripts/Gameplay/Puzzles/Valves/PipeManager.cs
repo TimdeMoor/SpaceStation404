@@ -9,6 +9,9 @@ namespace Gameplay.Puzzles.Valves
     {
         private List<Pipe> _pipes;
         public string _currentLayout;
+
+        public string solutionLayout;
+        
         void Start()
         {
             _pipes = GetComponentsInChildren<Pipe>().ToList();
@@ -27,6 +30,11 @@ namespace Gameplay.Puzzles.Valves
             {
                 _currentLayout += p.GetRotation().ToString();
             }
+        }
+
+        public void SetSolution(string newSolution)
+        {
+            solutionLayout = newSolution;
         }
     }
 }

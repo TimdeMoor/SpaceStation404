@@ -105,9 +105,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6122954251829346296}
   - component: {fileID: 6416686090723842629}
-  - component: {fileID: 926297739443911747}
   - component: {fileID: 4347566069253548200}
   - component: {fileID: 4337686364191138219}
+  - component: {fileID: 7625747950058000924}
   m_Layer: 0
   m_Name: Dial
   m_TagString: Untagged
@@ -145,24 +145,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxRotation: 360
   maxValue: 99
---- !u!114 &926297739443911747
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1520265219571202606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  outlineMode: 1
-  outlineColor: {r: 0.27290925, g: 0.8113208, b: 0.19517621, a: 1}
-  outlineWidth: 10
-  precomputeOutline: 0
-  bakeKeys: []
-  bakeValues: []
 --- !u!114 &4347566069253548200
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 1.5
-  invertRotation: 0
+  invertRotation: 1
 --- !u!65 &4337686364191138219
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -190,6 +172,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7625747950058000924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1520265219571202606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d28f3455a35b3d4d983308eabe33430, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0, g: 1, b: 0, a: 1}
+  outlineWidth: 7.5
 --- !u!1 &1966294454112368875
 GameObject:
   m_ObjectHideFlags: 0

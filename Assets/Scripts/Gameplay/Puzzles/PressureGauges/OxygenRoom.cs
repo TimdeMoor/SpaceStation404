@@ -1,8 +1,7 @@
-using Gameplay.Puzzles.PressureGauges;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Gameplay.Puzzles
+namespace Gameplay.Puzzles.PressureGauges
 {
     public class OxygenRoom : MonoBehaviour
     {

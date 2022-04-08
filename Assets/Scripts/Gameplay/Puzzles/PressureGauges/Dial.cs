@@ -3,14 +3,14 @@ using UnityEngine;
 
 namespace Gameplay.Puzzles.PressureGauges
 {
+    [DisallowMultipleComponent]
     public class Dial : MonoBehaviour
     {
         [SerializeField] private float maxRotation = 360f;
         [SerializeField] private float maxValue = 99f;
 
         private float _currentValue;
-        
-        
+
         public int GetValue()
         {
             float rotationPercentage = transform.localRotation.eulerAngles.y / maxRotation;

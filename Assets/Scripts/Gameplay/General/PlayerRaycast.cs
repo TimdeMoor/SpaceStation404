@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 namespace Gameplay.General
@@ -6,21 +7,22 @@ namespace Gameplay.General
     {
         [SerializeField] private int rayLength = 3;
         [SerializeField] private KeyCode interactionKey = KeyCode.Mouse0;
+        [SerializeField] private TextMeshProUGUI _interactableTextBox;
         private InteractableButton _raycastButton;
     
 
         private void Update()
         {
             GameObject rayCastHitObject = GetRayCastHitObject();
-        
-            //check for interactionKey
-            if (Input.GetKeyDown(interactionKey))
+            
+            //check if there is an object being looked at
+            if (rayCastHitObject != null)
             {
-                //check if there is an object being looked at
-                if (rayCastHitObject != null)
+                _interactableTextBox.enabled = rayCastHitObject.GetComponent<PuzzleViewToggle>() != null;
+
+                //check for interactionKey
+                if (Input.GetKeyDown(interactionKey))
                 {
-                    //print("Clicked on: " + rayCastHitObject.name);
-                
                     //if the object being looked at is a button
                     if (rayCastHitObject.GetComponent<InteractableButton>() != null)
                     {

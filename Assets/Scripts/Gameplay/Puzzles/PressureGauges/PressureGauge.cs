@@ -14,12 +14,17 @@ namespace Gameplay.Puzzles.PressureGauges
         [Range(0f, 99f)][SerializeField] private float value;
         [Range(0f, 99f)][SerializeField] private float targetValue;
 
-        private Material _pressureIndicatorMaterial; 
+        private Material _pressureIndicatorMaterial;
+
+        private AudioSource _correctSoundPlayer;
+        private bool _soundPlayed;
+        
         //private int startingLightFlickerInterval = 30; //in frames -> 60 = 1sec
         //private int _elapsedFrames = 0;
 
         void Start()
         {
+            _correctSoundPlayer = GetComponent<AudioSource>();
            _pressureIndicatorMaterial = pressureIndicator.GetComponent<Renderer>().material;
            _pressureIndicatorMaterial.color = Color.black;
         }
@@ -41,6 +46,7 @@ namespace Gameplay.Puzzles.PressureGauges
             Vector3 currentPos = gaugeIndicator.transform.localPosition;
             
             var newZPos = (minmaxDifference/100f) * valuePercentage;
+            
             gaugeIndicator.transform.localPosition = new Vector3(currentPos.x, currentPos.y, newZPos);
         }
 
@@ -52,7 +58,21 @@ namespace Gameplay.Puzzles.PressureGauges
         private void SetPressureIndicator()
         {
             //compare value and targetValue
-            _pressureIndicatorMaterial.color = Math.Abs(Mathf.Round(value) - targetValue) < float.Epsilon ? Color.green : Color.red;
+            if (Math.Abs(Mathf.Round(value) - targetValue) < float.Epsilon)
+            {
+                _pressureIndicatorMaterial.color = Color.green;
+
+                if (!_soundPlayed)
+                {
+                    _correctSoundPlayer.Play();
+                    _soundPlayed = true;
+                }
+            }
+            else
+            {
+                _pressureIndicatorMaterial.color = Color.black;
+                _soundPlayed = false;
+            }
         }
 
         public void SetValue(float newValue)

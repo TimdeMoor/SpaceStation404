@@ -1,4 +1,5 @@
 using Cinemachine;
+using TMPro;
 using UnityEngine;
 
 namespace Gameplay.General
@@ -7,6 +8,7 @@ namespace Gameplay.General
     {
         [SerializeField] private GameObject vCamParent;
         [SerializeField] private GameObject playerParent;
+        [SerializeField] private TextMeshProUGUI goBackText;
         
         private Movement _playerMovement;
         private CameraControl _playerCamControl;
@@ -24,7 +26,7 @@ namespace Gameplay.General
             _playerMovement = playerParent.GetComponent<Movement>();
             _playerCamControl = playerParent.GetComponentInChildren<CameraControl>();
 
-            //_playerModel = playerParent.GetComponentInChildren<Animator>().gameObject;
+            _playerModel = playerParent.GetComponentInChildren<Animator>().gameObject;
         }
     
     
@@ -49,7 +51,8 @@ namespace Gameplay.General
             _vCam.enabled = _puzzleViewActive;
             _playerMovement.enabled = !_puzzleViewActive;
             _playerCamControl.enabled = !_puzzleViewActive;
-            //_playerModel.SetActive(!_puzzleViewActive);
+            goBackText.enabled = _puzzleViewActive;
+            _playerModel.SetActive(!_puzzleViewActive);
             
             Cursor.lockState = _puzzleViewActive ? CursorLockMode.Confined : CursorLockMode.Locked;
         }
