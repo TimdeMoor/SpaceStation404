@@ -12,6 +12,7 @@ namespace Gameplay.Puzzles.PressureGauges
         [SerializeField] private TextMeshPro keyPadScreenText; 
         [SerializeField] private GameObject greenIndicator;
         [SerializeField] private GameObject redIndicator;
+        [SerializeField] private GameObject door;
 
         private string _solution;
         private string _screenText;
@@ -21,7 +22,11 @@ namespace Gameplay.Puzzles.PressureGauges
 
         private Material _greenIndicatorMaterial;
         private Material _redIndicatorMaterial;
-    
+
+        [SerializeField] private AudioClip codeCorrectSound;
+        [SerializeField] private AudioClip codeWrongSound;
+        private AudioSource _keypadAudio;
+        
         void Start()
         {
             _greenIndicatorMaterial = greenIndicator.GetComponent<Renderer>().material;
@@ -32,6 +37,8 @@ namespace Gameplay.Puzzles.PressureGauges
             
             List<TextMeshPro> textMeshes = GetComponentsInChildren<TextMeshPro>().ToList();
             textMeshes.RemoveAt(textMeshes.Count - 1); //Remove the keypadScreenTextMesh
+
+            _keypadAudio = GetComponent<AudioSource>();
             
             int i = 0;
             foreach(TextMeshPro textMesh in textMeshes)
@@ -72,8 +79,11 @@ namespace Gameplay.Puzzles.PressureGauges
             
             if (_solved)
             {
+                PlayCorrectSound();
                 DisableButtons();
+                Destroy(door);
                 keyPadScreenText.text = "Correct";
+                
                 //Switch lights
                 _greenIndicatorMaterial.color = new Color(0f,1f,0f);
                 _redIndicatorMaterial.color = new Color(.25f,0f,0f);
@@ -90,7 +100,7 @@ namespace Gameplay.Puzzles.PressureGauges
         private void DisableButtons()
         {
             //Disable the buttonColliders from the keypadButtons
-            foreach (ClickHandler handler in GetComponentsInChildren<ClickHandler>())
+            foreach (KeyPadKey handler in GetComponentsInChildren<KeyPadKey>())
             {
                 handler.gameObject.GetComponent<Collider>().enabled = false;
             }
@@ -120,7 +130,20 @@ namespace Gameplay.Puzzles.PressureGauges
         private void ResetKeyPad()
         {
             FlashRedLight();
+            PlayIncorrectSound();
             Invoke(nameof(ClearKeyPadScreen), 1f);
+        }
+
+        private void PlayIncorrectSound()
+        {
+            _keypadAudio.clip = codeWrongSound;
+            _keypadAudio.PlayDelayed(.1f);
+        }
+
+        private void PlayCorrectSound()
+        {
+            _keypadAudio.clip = codeCorrectSound;
+            _keypadAudio.PlayDelayed(.1f);
         }
     }
 }
