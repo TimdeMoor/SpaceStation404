@@ -13,6 +13,7 @@ namespace Gameplay.Puzzles.PressureGauges
         [SerializeField] private GameObject greenIndicator;
         [SerializeField] private GameObject redIndicator;
         [SerializeField] private GameObject door;
+        [SerializeField] private dialoguemanager dialogue;
 
         private string _solution;
         private string _screenText;
@@ -83,6 +84,7 @@ namespace Gameplay.Puzzles.PressureGauges
                 DisableButtons();
                 Destroy(door);
                 keyPadScreenText.text = "Correct";
+                dialogue.PlayDialogue(dialogue.dialogue2);
                 
                 //Switch lights
                 _greenIndicatorMaterial.color = new Color(0f,1f,0f);
