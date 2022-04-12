@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.058491528, g: 0.21478081, b: 0.22083989, a: 1}
+  m_IndirectSpecularColor: {r: 0.058424674, g: 0.21510726, b: 0.22063825, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2333,6 +2333,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: dialoguemanager
       objectReference: {fileID: 0}
+    - target: {fileID: 7052941515658428397, guid: 84676032c4ba47e449c980f2f475fd77, type: 3}
+      propertyPath: dialogue1
+      value: 
+      objectReference: {fileID: 8300000, guid: 4107d5151a84bdc4f9ed31839df850e9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84676032c4ba47e449c980f2f475fd77, type: 3}
 --- !u!1 &1456470109

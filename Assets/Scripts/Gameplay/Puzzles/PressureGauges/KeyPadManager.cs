@@ -84,7 +84,7 @@ namespace Gameplay.Puzzles.PressureGauges
                 DisableButtons();
                 Destroy(door);
                 keyPadScreenText.text = "Correct";
-                dialogue.PlayDialogue(dialogue.dialogue2);
+                
                 
                 //Switch lights
                 _greenIndicatorMaterial.color = new Color(0f,1f,0f);
