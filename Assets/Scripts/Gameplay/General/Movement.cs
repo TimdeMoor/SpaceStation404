@@ -56,7 +56,7 @@ namespace Gameplay.General
             _controller.Move(newLocation * _speedMultiplier);
         
             //Handles up and down movement
-            transform.Translate(0,_upDownAxis * _speedMultiplier, 0);
+            //_controller.Move(new Vector3(0, _upDownAxis * _speedMultiplier, 0));
         }
 
         private void ApplyRotation()

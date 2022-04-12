@@ -1,3 +1,4 @@
+using Gameplay.General;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -22,7 +23,7 @@ public class Pipe : MonoBehaviour
         _rotation++;
         _audioSource.Play();
         
-        SetRotation(_rotation);
+        Rotate90Deg();
     }
     
     public int GetRotation()
@@ -30,9 +31,8 @@ public class Pipe : MonoBehaviour
         return _rotation;
     }
 
-    private void SetRotation(int rotationIndex)
+    private void Rotate90Deg()
     {
-        //transform.localRotation = Quaternion.Euler(new Vector3(0,0,0));
-        transform.RotateAround(_customPivot.position, Vector3.forward, rotationIndex * 90);
+        transform.RotateAround(_customPivot.position, Vector3.forward, 90);
     }
 }
