@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Gameplay.General;
 using TMPro;
 using UnityEngine;
 
@@ -13,6 +14,7 @@ namespace Gameplay.Puzzles.PressureGauges
         private string _currentCode;
         private AudioSource _audioSource;
         private StringBuilder _sb;
+        private bool _active;
         void Start()
         {
             _sb = new StringBuilder();
@@ -23,13 +25,15 @@ namespace Gameplay.Puzzles.PressureGauges
     
         void Update()
         {
+            if (!_active) return;
+            
             _currentCode = GetCodeString();
 
             if (_codeText.text != _currentCode)
             {
                 PlayClickSound();
             }
-            
+
             _codeText.text = _currentCode;
         }
 
@@ -49,6 +53,26 @@ namespace Gameplay.Puzzles.PressureGauges
         private void PlayClickSound()
         {
             _audioSource.Play();
+        }
+
+        public void Activate()
+        {
+            _active = true;
+            
+            foreach (var dial in GetComponentsInChildren<MouseDragRotate>())
+            {
+                dial.gameObject.GetComponent<Collider>().enabled = true;
+            }
+        }
+
+        public void Deactivate()
+        {
+            _active = false;
+
+            foreach (var dial in GetComponentsInChildren<MouseDragRotate>())
+            {
+                dial.gameObject.GetComponent<Collider>().enabled = false;
+            }
         }
     }
 }

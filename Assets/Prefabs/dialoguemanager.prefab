@@ -109,8 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6675bd5202b2a8a4ba88760dac5e265d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogue1: {fileID: 8300000, guid: 756455dbeaecdad41af996851996c6f3, type: 3}
-  dialogue2: {fileID: 8300000, guid: 39beae45627a2744cac942b30bddc1a2, type: 3}
+  dialogue1_2: {fileID: 8300000, guid: 4107d5151a84bdc4f9ed31839df850e9, type: 3}
   dialogue3: {fileID: 8300000, guid: 9a10d6ed318b8f54fb4d421c462b64d3, type: 3}
   dialogue4: {fileID: 8300000, guid: 47c3216534e86454c8fbac13a8c32e34, type: 3}
 --- !u!82 &4418077423908037952

@@ -15,7 +15,7 @@ namespace Gameplay.Puzzles.Valves
         private Material _redIndicatorMaterial;
 
         private List<Pipe> _pipes;
-        private string _currentLayout;
+        public string _currentLayout;
         
         private bool _isSolved;
         
@@ -61,7 +61,7 @@ namespace Gameplay.Puzzles.Valves
 
         private bool CheckSolution()
         {
-            return Regex.IsMatch(_currentLayout, "23[13]112[0123]1011[02][02]0130[0123]2[02]0[13]333");
+            return Regex.IsMatch(_currentLayout, "21[13]332[0123]3033[02][02]0310[0123]2[02]0[13]111");
         }
 
         public bool GetSolvedState()

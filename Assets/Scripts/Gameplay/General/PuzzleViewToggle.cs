@@ -27,7 +27,7 @@ namespace Gameplay.General
             _playerMovement = playerParent.GetComponent<Movement>();
             _playerCamControl = playerParent.GetComponentInChildren<CameraControl>();
 
-            _playerModel = playerParent.GetComponentInChildren<Animator>().gameObject;
+            _playerModel = playerParent.GetComponentInChildren<Dummy>().gameObject;
         }
     
     

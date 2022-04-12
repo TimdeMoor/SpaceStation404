@@ -351,7 +351,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8004752897270080709
 Transform:
   m_ObjectHideFlags: 0
@@ -565,8 +565,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   greenIndicator: {fileID: 8950739170347804740}
   redIndicator: {fileID: 1735621048532994027}
-  _currentLayout: 
-  solutionLayout: 
 --- !u!1 &6618536090437724973
 GameObject:
   m_ObjectHideFlags: 0
@@ -2554,6 +2552,7 @@ MonoBehaviour:
   vCamParent: {fileID: 4616999520108372923}
   playerParent: {fileID: 4348129433387476165, guid: 6b92a287c27d90b489ec7fb9789f2d1b, type: 3}
   goBackText: {fileID: 0}
+  crosshair: {fileID: 0}
 --- !u!114 &8612785381466641229
 MonoBehaviour:
   m_ObjectHideFlags: 0

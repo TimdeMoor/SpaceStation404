@@ -1,38 +1,39 @@
-using Gameplay.General;
 using UnityEngine;
-using UnityEngine.Events;
 
-public class Pipe : MonoBehaviour
+namespace Gameplay.Puzzles.Valves
 {
-    [SerializeField]private Transform _customPivot;
-    public int _rotation = 0;
-    private AudioSource _audioSource;
-
-    private void Start()
+    public class Pipe : MonoBehaviour
     {
-        _audioSource = GetComponent<AudioSource>();
-    }
+        [SerializeField]private Transform _customPivot;
+        public int _rotation = 0;
+        private AudioSource _audioSource;
 
-    private void Update()
-    {
-        _rotation %= 4; //if rotation > 3 then turn back to 0
-    }
+        private void Start()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
+
+        private void Update()
+        {
+            _rotation %= 4; //if rotation > 3 then turn back to 0
+        }
     
-    private void OnMouseDown()
-    {
-        _rotation++;
-        _audioSource.Play();
+        private void OnMouseDown()
+        {
+            _rotation++;
+            _audioSource.Play();
         
-        Rotate90Deg();
-    }
+            Rotate90Deg();
+        }
     
-    public int GetRotation()
-    {
-        return _rotation;
-    }
+        public int GetRotation()
+        {
+            return _rotation;
+        }
 
-    private void Rotate90Deg()
-    {
-        transform.RotateAround(_customPivot.position, Vector3.forward, 90);
+        private void Rotate90Deg()
+        {
+            transform.RotateAround(_customPivot.position, Vector3.left, 90);
+        }
     }
 }
