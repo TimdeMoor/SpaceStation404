@@ -581,7 +581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55925b7051cfde549a785bfb9743fedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyPadSolutionCode: 696969
+  keyPadSolutionCode: 702750
   isRandomCode: 0
 --- !u!114 &513663047 stripped
 MonoBehaviour:
@@ -1448,6 +1448,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4348129433106286124, guid: 6b92a287c27d90b489ec7fb9789f2d1b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4348129433106286125, guid: 6b92a287c27d90b489ec7fb9789f2d1b, type: 3}
       propertyPath: m_Enabled
       value: 1
