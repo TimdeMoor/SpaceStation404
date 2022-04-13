@@ -8,6 +8,8 @@ namespace Gameplay.Puzzles.Valves
 {
     public class PipeManager : MonoBehaviour
     {
+        AudioSource audiosource;
+
         [SerializeField] private GameObject greenIndicator;
         [SerializeField] private GameObject redIndicator;
 
@@ -18,6 +20,7 @@ namespace Gameplay.Puzzles.Valves
         public string _currentLayout;
         
         private bool _isSolved;
+        bool dialogueStarted = false;
         
         void Start()
         {
@@ -28,6 +31,8 @@ namespace Gameplay.Puzzles.Valves
             
             _redIndicatorMaterial = redIndicator.GetComponent<Renderer>().material;
             _redIndicatorMaterial.color = new Color(1f,0f,0f);
+
+            dialogueStarted = false;
         }
 
         private void Update()
@@ -40,6 +45,15 @@ namespace Gameplay.Puzzles.Valves
                 _greenIndicatorMaterial.color = new Color(0f,1f,0f);
                 _redIndicatorMaterial.color = new Color(.25f,0f,0f);
                 _isSolved = true;
+
+                audiosource = GetComponent<AudioSource>();
+
+                if (_isSolved == true && dialogueStarted == false)
+                {
+                    dialogueStarted = true;
+                    dialoguemanager dialoguemanager = FindObjectOfType<dialoguemanager>();
+                    dialoguemanager.PlayDialogue(dialoguemanager.dialogue3);
+                }
             }
             else
             {
@@ -47,6 +61,7 @@ namespace Gameplay.Puzzles.Valves
                 _redIndicatorMaterial.color = new Color(1f,0f,0f);
                 _isSolved = false;
             }
+            
         }
 
         void GetCurrentLayout()
