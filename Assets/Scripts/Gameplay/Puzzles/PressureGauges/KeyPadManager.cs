@@ -13,7 +13,7 @@ namespace Gameplay.Puzzles.PressureGauges
         [SerializeField] private GameObject greenIndicator;
         [SerializeField] private GameObject redIndicator;
         [SerializeField] private GameObject door;
-        [SerializeField] private dialoguemanager dialogue;
+        [SerializeField] private DialogueManager dialogue;
 
         private string _solution;
         private string _screenText;

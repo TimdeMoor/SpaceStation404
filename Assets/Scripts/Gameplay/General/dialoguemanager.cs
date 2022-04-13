@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class dialoguemanager : MonoBehaviour
+public class DialogueManager : MonoBehaviour
 {
     AudioSource audiosource;
     [SerializeField] public AudioClip dialogue1_2;
@@ -24,6 +24,4 @@ public class dialoguemanager : MonoBehaviour
         audiosource.Play();
 
     }
-
-
 }

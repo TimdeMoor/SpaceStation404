@@ -18,6 +18,8 @@ namespace Gameplay.Puzzles.PressureGauges
 
         private AudioSource _correctSoundPlayer;
         private bool _soundPlayed;
+
+        private bool _solved;
         
         //private int startingLightFlickerInterval = 30; //in frames -> 60 = 1sec
         //private int _elapsedFrames = 0;
@@ -27,6 +29,7 @@ namespace Gameplay.Puzzles.PressureGauges
             _correctSoundPlayer = GetComponent<AudioSource>();
            _pressureIndicatorMaterial = pressureIndicator.GetComponent<Renderer>().material;
            _pressureIndicatorMaterial.color = Color.black;
+           _solved = false;
         }
         void Update()
         {
@@ -61,7 +64,8 @@ namespace Gameplay.Puzzles.PressureGauges
             if (Math.Abs(Mathf.Round(value) - targetValue) < float.Epsilon)
             {
                 _pressureIndicatorMaterial.color = Color.green;
-
+                _solved = true;
+                
                 if (!_soundPlayed)
                 {
                     _correctSoundPlayer.Play();
@@ -72,6 +76,7 @@ namespace Gameplay.Puzzles.PressureGauges
             {
                 _pressureIndicatorMaterial.color = Color.black;
                 _soundPlayed = false;
+                _solved = false;
             }
         }
 
@@ -80,6 +85,10 @@ namespace Gameplay.Puzzles.PressureGauges
             value = newValue;
         }
 
+        public bool getSolved()
+        {
+            return _solved;
+        }
         //private void ToggleIndicatorLight()
         //{
         //    _pressureIndicatorMaterial.color = _pressureIndicatorMaterial.color == Color.red ? Color.green : Color.red;

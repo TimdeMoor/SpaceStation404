@@ -48,10 +48,10 @@ namespace Gameplay.Puzzles.Valves
 
                 audiosource = GetComponent<AudioSource>();
 
-                if (_isSolved == true && dialogueStarted == false)
+                if (_isSolved && !dialogueStarted)
                 {
                     dialogueStarted = true;
-                    dialoguemanager dialoguemanager = FindObjectOfType<dialoguemanager>();
+                    DialogueManager dialoguemanager = FindObjectOfType<DialogueManager>();
                     dialoguemanager.PlayDialogue(dialoguemanager.dialogue3);
                 }
             }

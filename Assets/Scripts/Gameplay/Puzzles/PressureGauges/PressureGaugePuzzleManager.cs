@@ -8,7 +8,6 @@ namespace Gameplay.Puzzles.PressureGauges
         [SerializeField] private List<PressureGauge> Gauges;
         [SerializeField] private List<Dial> Dials;
         private string _solutionCombination = string.Empty;
-
         void Start()
         {
             //SetSolution();
@@ -17,6 +16,10 @@ namespace Gameplay.Puzzles.PressureGauges
         void Update()
         {
             SetGauges();
+            if (PressureGaugesSolved())
+            {
+                //play next Dialogue
+            }
         }
 
         private void SetGauges()
@@ -44,6 +47,20 @@ namespace Gameplay.Puzzles.PressureGauges
         {
             _solutionCombination = newSolution;
             SetSolution();
+        }
+
+        private bool PressureGaugesSolved()
+        {
+            bool allSolved = true;
+            foreach (PressureGauge g in Gauges)
+            {
+                if (!g.getSolved())
+                {
+                    allSolved = false;
+                }
+            }
+
+            return allSolved;
         }
     }
 }
