@@ -5,9 +5,12 @@ namespace Gameplay.Puzzles.PressureGauges
 {
     public class PressureGaugePuzzleManager : MonoBehaviour
     {
+        AudioSource audiosource;
+
         [SerializeField] private List<PressureGauge> Gauges;
         [SerializeField] private List<Dial> Dials;
         private string _solutionCombination = string.Empty;
+        bool dialogueplayed = false;
         void Start()
         {
             //SetSolution();
@@ -16,9 +19,20 @@ namespace Gameplay.Puzzles.PressureGauges
         void Update()
         {
             SetGauges();
-            if (PressureGaugesSolved())
+            if (PressureGaugesSolved() && !dialogueplayed)
             {
                 //play next Dialogue
+                DialogueManager dialoguemanager = FindObjectOfType<DialogueManager>();
+                dialoguemanager.PlayDialogue(dialoguemanager.dialogue4);
+                Debug.Log("tyfuszooi");
+                dialogueplayed = true;
+
+            }
+
+            if(Input.GetKeyDown(KeyCode.O))
+            {
+                DialogueManager dialoguemanager = FindObjectOfType<DialogueManager>();
+                dialoguemanager.PlayDialogue(dialoguemanager.dialogue4);
             }
         }
 
