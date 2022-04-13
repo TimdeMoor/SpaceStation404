@@ -21,12 +21,9 @@ namespace Gameplay.Puzzles.PressureGauges
             SetGauges();
             if (PressureGaugesSolved() && !dialogueplayed)
             {
-                //play next Dialogue
                 DialogueManager dialoguemanager = FindObjectOfType<DialogueManager>();
                 dialoguemanager.PlayDialogue(dialoguemanager.dialogue4);
-                Debug.Log("tyfuszooi");
                 dialogueplayed = true;
-
             }
 
             if(Input.GetKeyDown(KeyCode.O))
