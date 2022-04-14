@@ -975,6 +975,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &872776998 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1411163836428045315, guid: 6b92a287c27d90b489ec7fb9789f2d1b, type: 3}
+  m_PrefabInstance: {fileID: 4348129433225374552}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &933635950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1098,6 +1103,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.004
       objectReference: {fileID: 0}
+    - target: {fileID: 1832483254338505199, guid: 214b96d96bd58484faa745b46351b328, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 872776998}
     - target: {fileID: 1832483254338505199, guid: 214b96d96bd58484faa745b46351b328, type: 3}
       propertyPath: goBackText
       value: 
@@ -1251,6 +1260,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puzzle_PressureGauges
       objectReference: {fileID: 0}
+    - target: {fileID: 6615372900538381232, guid: 571bc3fa3618b9740aa672e536661bc4, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 872776998}
     - target: {fileID: 6615372900538381232, guid: 571bc3fa3618b9740aa672e536661bc4, type: 3}
       propertyPath: goBackText
       value: 
@@ -1522,6 +1535,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 503438119}
     m_Modifications:
+    - target: {fileID: 1728683355616317979, guid: 80bf66c4db37af949a1a99447517353a, type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 872776998}
     - target: {fileID: 1728683355616317979, guid: 80bf66c4db37af949a1a99447517353a, type: 3}
       propertyPath: goBackText
       value: 

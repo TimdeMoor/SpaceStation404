@@ -8,19 +8,20 @@ namespace Gameplay.Puzzles.Valves
 {
     public class PipeManager : MonoBehaviour
     {
-        AudioSource audiosource;
-
         [SerializeField] private GameObject greenIndicator;
+        [SerializeField] private Light greenLight;
+        
         [SerializeField] private GameObject redIndicator;
-
+        [SerializeField] private Light redLight;
+        
         private Material _greenIndicatorMaterial;
         private Material _redIndicatorMaterial;
 
         private List<Pipe> _pipes;
-        public string _currentLayout;
+        private string _currentLayout;
         
         private bool _isSolved;
-        bool dialogueStarted = false;
+        bool _dialogueStarted = false;
         
         void Start()
         {
@@ -28,11 +29,15 @@ namespace Gameplay.Puzzles.Valves
             
             _greenIndicatorMaterial = greenIndicator.GetComponent<Renderer>().material;
             _greenIndicatorMaterial.color = new Color(0f,.25f,0f);
+            greenLight.color = Color.green;
+            greenLight.enabled = false;
             
             _redIndicatorMaterial = redIndicator.GetComponent<Renderer>().material;
             _redIndicatorMaterial.color = new Color(1f,0f,0f);
+            redLight.color = Color.red;
+            redLight.enabled = true;
 
-            dialogueStarted = false;
+            _dialogueStarted = false;
         }
 
         private void Update()
@@ -43,14 +48,15 @@ namespace Gameplay.Puzzles.Valves
             if (CheckSolution())
             {
                 _greenIndicatorMaterial.color = new Color(0f,1f,0f);
-                _redIndicatorMaterial.color = new Color(.25f,0f,0f);
+                _redIndicatorMaterial.color = new Color(.25f, 0f, 0f);
+                greenLight.enabled = true;
+                redLight.enabled = false;
+                
                 _isSolved = true;
 
-                audiosource = GetComponent<AudioSource>();
-
-                if (_isSolved && !dialogueStarted)
+                if (_isSolved && !_dialogueStarted)
                 {
-                    dialogueStarted = true;
+                    _dialogueStarted = true;
                     DialogueManager dialoguemanager = FindObjectOfType<DialogueManager>();
                     dialoguemanager.PlayDialogue(dialoguemanager.dialogue3);
                 }
@@ -59,6 +65,8 @@ namespace Gameplay.Puzzles.Valves
             {
                 _greenIndicatorMaterial.color = new Color(0f,.25f,0f);
                 _redIndicatorMaterial.color = new Color(1f,0f,0f);
+                greenLight.enabled = false;
+                redLight.enabled = true;
                 _isSolved = false;
             }
             

@@ -20,9 +20,9 @@ namespace Gameplay.Puzzles.PressureGauges
         private bool _soundPlayed;
 
         private bool _solved;
+
+        private Light _light;
         
-        //private int startingLightFlickerInterval = 30; //in frames -> 60 = 1sec
-        //private int _elapsedFrames = 0;
 
         void Start()
         {
@@ -30,17 +30,13 @@ namespace Gameplay.Puzzles.PressureGauges
            _pressureIndicatorMaterial = pressureIndicator.GetComponent<Renderer>().material;
            _pressureIndicatorMaterial.color = Color.black;
            _solved = false;
+           _light = GetComponentInChildren<Light>();
         }
         void Update()
         {
             SetPosition();
             SetPressureIndicator();
         }
-
-        //private void FixedUpdate()
-        //{
-        //    _elapsedFrames++;
-        //}
 
         private void SetPosition()
         {
@@ -63,20 +59,20 @@ namespace Gameplay.Puzzles.PressureGauges
             //compare value and targetValue
             if (Math.Abs(Mathf.Round(value) - targetValue) < float.Epsilon)
             {
-                _pressureIndicatorMaterial.color = Color.green;
-                _solved = true;
+                if (_soundPlayed) return;
                 
-                if (!_soundPlayed)
-                {
-                    _correctSoundPlayer.Play();
-                    _soundPlayed = true;
-                }
+                _pressureIndicatorMaterial.color = Color.green;
+                _light.enabled = true;
+                _solved = true;
+                _correctSoundPlayer.Play();
+                _soundPlayed = true;
             }
             else
             {
                 _pressureIndicatorMaterial.color = Color.black;
                 _soundPlayed = false;
                 _solved = false;
+                _light.enabled = false;
             }
         }
 
@@ -85,13 +81,9 @@ namespace Gameplay.Puzzles.PressureGauges
             value = newValue;
         }
 
-        public bool getSolved()
+        public bool GetSolved()
         {
             return _solved;
         }
-        //private void ToggleIndicatorLight()
-        //{
-        //    _pressureIndicatorMaterial.color = _pressureIndicatorMaterial.color == Color.red ? Color.green : Color.red;
-        //}
     }
 }

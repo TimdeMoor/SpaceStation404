@@ -65,7 +65,7 @@ namespace Gameplay.Puzzles.PressureGauges
             bool allSolved = true;
             foreach (PressureGauge g in Gauges)
             {
-                if (!g.getSolved())
+                if (!g.GetSolved())
                 {
                     allSolved = false;
                 }

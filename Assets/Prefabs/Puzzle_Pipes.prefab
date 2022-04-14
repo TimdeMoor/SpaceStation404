@@ -564,7 +564,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   greenIndicator: {fileID: 8950739170347804740}
+  greenLight: {fileID: 6481244914933681996}
   redIndicator: {fileID: 1735621048532994027}
+  redLight: {fileID: 4454977122207572195}
 --- !u!1 &6618536090437724973
 GameObject:
   m_ObjectHideFlags: 0
@@ -1094,8 +1096,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e4db8a9743b0c264098ee22387298b1d, type: 2}
+    - target: {fileID: 2720692312727120558, guid: eb66ad65eb8ce2f4ba081ecbd8099a51, type: 3}
+      propertyPath: m_Range
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb66ad65eb8ce2f4ba081ecbd8099a51, type: 3}
+--- !u!108 &4454977122207572195 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2720692312727120558, guid: eb66ad65eb8ce2f4ba081ecbd8099a51, type: 3}
+  m_PrefabInstance: {fileID: 1734612807813483085}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1730167534260924111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4608174180656258, guid: eb66ad65eb8ce2f4ba081ecbd8099a51, type: 3}
@@ -2900,8 +2911,17 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e4db8a9743b0c264098ee22387298b1d, type: 2}
+    - target: {fileID: 2720692312727120558, guid: eb66ad65eb8ce2f4ba081ecbd8099a51, type: 3}
+      propertyPath: m_Range
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb66ad65eb8ce2f4ba081ecbd8099a51, type: 3}
+--- !u!108 &6481244914933681996 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 2720692312727120558, guid: eb66ad65eb8ce2f4ba081ecbd8099a51, type: 3}
+  m_PrefabInstance: {fileID: 8949733105096304098}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8945144791113941344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4608174180656258, guid: eb66ad65eb8ce2f4ba081ecbd8099a51, type: 3}
