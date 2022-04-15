@@ -22,11 +22,5 @@ namespace Menus
         {
             transform.RotateAround(_targetPosition, Vector3.up, rotationSpeed * Time.deltaTime);
         }
-
-        //Shows the orbit
-        private void OnDrawGizmos()
-        {
-            Handles.DrawWireDisc(_targetPosition, Vector3.up, Vector3.Distance(_targetPosition, transform.position));
-        }
     }
 }
