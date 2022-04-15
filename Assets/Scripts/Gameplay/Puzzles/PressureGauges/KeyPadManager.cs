@@ -15,7 +15,7 @@ namespace Gameplay.Puzzles.PressureGauges
         [SerializeField] private GameObject door;
         [SerializeField] private DialogueManager dialogue;
 
-        private string _solution;
+        [SerializeField] private string _solution;
         private string _screenText;
         private int _maxLength = 6;
         private int _currentLength;

@@ -9,7 +9,7 @@ namespace Gameplay.General
         [SerializeField] private GameObject vCamParent;
         [SerializeField] private GameObject playerParent;
         [SerializeField] private TextMeshProUGUI goBackText;
-        [SerializeField] private GameObject crosshair;
+        [SerializeField] private GameObject crossHair;
         
         private Movement _playerMovement;
         private CameraControl _playerCamControl;
@@ -54,7 +54,7 @@ namespace Gameplay.General
             _playerCamControl.enabled = !_puzzleViewActive;
             goBackText.enabled = _puzzleViewActive;
             _playerModel.SetActive(!_puzzleViewActive);
-            crosshair.SetActive(!_puzzleViewActive);
+            crossHair.SetActive(!_puzzleViewActive);
 
             Cursor.lockState = _puzzleViewActive ? CursorLockMode.Confined : CursorLockMode.Locked;
         }
