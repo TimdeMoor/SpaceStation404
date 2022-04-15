@@ -57,8 +57,9 @@ namespace Gameplay.Puzzles.Valves
                 if (_isSolved && !_dialogueStarted)
                 {
                     _dialogueStarted = true;
-                    DialogueManager dialoguemanager = FindObjectOfType<DialogueManager>();
-                    dialoguemanager.PlayDialogue(dialoguemanager.dialogue3);
+                    DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+                    dialogueManager.PlayDialogue(dialogueManager.dialogue3);
+                    DeactivatePipes();
                 }
             }
             else
@@ -69,7 +70,6 @@ namespace Gameplay.Puzzles.Valves
                 redLight.enabled = true;
                 _isSolved = false;
             }
-            
         }
 
         void GetCurrentLayout()
@@ -90,6 +90,14 @@ namespace Gameplay.Puzzles.Valves
         public bool GetSolvedState()
         {
             return _isSolved;
+        }
+
+        private void DeactivatePipes()
+        {
+            foreach (Pipe p in _pipes)
+            {
+                p.gameObject.GetComponent<Collider>().enabled = false;
+            }
         }
     }
 }

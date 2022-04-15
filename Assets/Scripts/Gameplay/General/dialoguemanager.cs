@@ -15,9 +15,9 @@ public class DialogueManager : MonoBehaviour
         PlayDialogue(dialogue1and2);
     }
 
-    public void PlayDialogue(AudioClip audioclip)
+    public void PlayDialogue(AudioClip audioClip)
     {
-        audiosource.clip = audioclip;
+        audiosource.clip = audioClip;
         audiosource.Play();
     }
 }
