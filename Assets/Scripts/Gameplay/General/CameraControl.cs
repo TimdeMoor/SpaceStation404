@@ -9,9 +9,15 @@ namespace Gameplay.General
 
         private float _mouseX;
         private float _mouseY;
+        private float _invertMouseMultiplier = 1;
     
         void Start()
         {
+            if (PlayerPrefs.GetInt("invertMouse") != 0)
+            {
+                _invertMouseMultiplier = -1;
+            }
+            
             Cursor.lockState = CursorLockMode.Locked;
         }
     
@@ -25,7 +31,7 @@ namespace Gameplay.General
         private void HandleInput()
         {
             _mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            _mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+            _mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * _invertMouseMultiplier * Time.deltaTime;
         }
 
         private void ApplyRotation()
