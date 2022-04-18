@@ -44,7 +44,6 @@ namespace Gameplay.Puzzles.Valves
         {
             //TODO: Convert to eventBased -> OnLayoutChanged
             GetCurrentLayout();
-
             if (CheckSolution())
             {
                 _greenIndicatorMaterial.color = new Color(0f,1f,0f);

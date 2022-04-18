@@ -25,12 +25,6 @@ namespace Gameplay.Puzzles.PressureGauges
                 dialoguemanager.PlayDialogue(dialoguemanager.dialogue4);
                 dialogueplayed = true;
             }
-
-            if(Input.GetKeyDown(KeyCode.O))
-            {
-                DialogueManager dialoguemanager = FindObjectOfType<DialogueManager>();
-                dialoguemanager.PlayDialogue(dialoguemanager.dialogue4);
-            }
         }
 
         private void SetGauges()

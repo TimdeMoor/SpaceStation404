@@ -44,8 +44,8 @@ namespace Gameplay.General
             else if (Input.GetKey(KeyCode.E)){ _rollAxis = -1f; }
             else { _rollAxis = 0f; }
         
-            if (Input.GetKey(KeyCode.Space)){ _upDownAxis = 1f; }
-            else if (Input.GetKey(KeyCode.LeftShift)){ _upDownAxis = -1f; }
+            if (Input.GetKey(KeyCode.Space)){ _upDownAxis = .5f; }
+            else if (Input.GetKey(KeyCode.LeftShift)){ _upDownAxis = -.5f; }
             else { _upDownAxis = 0f; }
         }
 
@@ -56,7 +56,7 @@ namespace Gameplay.General
             _controller.Move(newLocation * _speedMultiplier);
         
             //Handles up and down movement
-            //_controller.Move(new Vector3(0, _upDownAxis * _speedMultiplier, 0));
+            _controller.Move(new Vector3(0, _upDownAxis * _speedMultiplier, 0));
         }
 
         private void ApplyRotation()
