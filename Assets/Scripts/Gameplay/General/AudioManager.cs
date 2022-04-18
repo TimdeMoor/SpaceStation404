@@ -14,7 +14,7 @@ namespace Gameplay.General
 
         void Update()
         {
-            _backGroundMusic.volume = _dialogueManager.isPlaying ? .01f : .05f;
+            _backGroundMusic.volume = _dialogueManager.isPlaying ? .01f : .03f;
         }
     }
 }
