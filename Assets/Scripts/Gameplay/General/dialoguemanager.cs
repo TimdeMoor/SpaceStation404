@@ -8,6 +8,7 @@ namespace Gameplay.General
         [SerializeField] public AudioClip dialogue1and2;
         [SerializeField] public AudioClip dialogue3;
         [SerializeField] public AudioClip dialogue4;
+        [SerializeField] public AudioClip creditdialogue;
 
         private void Start()
         {

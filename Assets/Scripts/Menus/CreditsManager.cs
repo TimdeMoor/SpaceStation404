@@ -20,12 +20,13 @@ namespace Menus
             credits.Add(new CreditsEntry("Programmers", new List<string>{"Tim", "Bart"}));
             credits.Add(new CreditsEntry("Local Tryhard", new List<string>{"Tim"}));
             credits.Add(new CreditsEntry("Media Boi", new List<string>{"Bart"}));
-            credits.Add(new CreditsEntry("Testers", new List<string>{"Naam1", "Naam2"}));
-            credits.Add(new CreditsEntry("Other stuff", new List<string>{"Stuff1", "Stuff2", "Stuff3", "Stuff4", "Stuff5", "Stuff6"}));
+            credits.Add(new CreditsEntry("Testers", new List<string>{"Ertan", "Sam", "Joey", "Tom"}));
+            credits.Add(new CreditsEntry("Music used", new List<string>{"the introvert - Michael Kobrin", "Piano Moment - Zakhar Valaha", "Ukraine Win (Kitty) - Lesfm"}));
             credits.Add(new CreditsEntry("Food Provider", new List<string>{"Jumbo"}));
-       
+           
 
-            credits.Add(new CreditsEntry("Thanks for playing", new List<string>{""}));
+
+            credits.Add(new CreditsEntry("Thanks for playing!", new List<string>{""}));
 
             CreateCredits();
         
