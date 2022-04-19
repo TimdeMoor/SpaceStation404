@@ -17,7 +17,7 @@ namespace Gameplay.Puzzles.PressureGauges
             if (PressureGaugesSolved() && !_dialoguePlayed)
             {
                 DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
-                dialogueManager.PlayDialogue(dialogueManager.dialogue4);
+                dialogueManager.PlayDialogue(dialogueManager.dialogue3);
                 _dialoguePlayed = true;
             }
         }

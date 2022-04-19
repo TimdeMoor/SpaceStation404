@@ -17,6 +17,8 @@ namespace Menus
         private float _currentLine;
         void Start()
         {
+            credits.Add(new CreditsEntry("SpaceStation 404", new List<string>{}));
+
             credits.Add(new CreditsEntry("Teachers", new List<string>{"Michael", "Geert-Jan", "Gerwin", "Erwin"}));
             credits.Add(new CreditsEntry("Programmers", new List<string>{"Tim", "Bart"}));
             credits.Add(new CreditsEntry("Local Tryhard", new List<string>{"Tim"}));

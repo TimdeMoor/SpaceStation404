@@ -58,7 +58,7 @@ namespace Gameplay.Puzzles.Valves
                 {
                     _dialogueStarted = true;
                     DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
-                    dialogueManager.PlayDialogue(dialogueManager.dialogue3);
+                    //dialogueManager.PlayDialogue(dialogueManager.dialogue3);
                     DeactivatePipes();
                 }
             }

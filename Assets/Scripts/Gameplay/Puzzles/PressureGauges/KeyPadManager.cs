@@ -153,6 +153,10 @@ namespace Gameplay.Puzzles.PressureGauges
         {
             _keypadAudio.clip = codeCorrectSound;
             _keypadAudio.PlayDelayed(.1f);
+            if (dialogue != null)
+            {
+                dialogue.PlayDialogue(dialogue.dialogue4);
+            }
         }
 
         public void DisableKeypad()
