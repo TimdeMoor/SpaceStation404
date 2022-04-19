@@ -6,34 +6,28 @@ namespace Gameplay.Puzzles.PressureGauges
 {
     public class PressureGaugePuzzleManager : MonoBehaviour
     {
-        AudioSource audiosource;
-
-        [SerializeField] private List<PressureGauge> Gauges;
-        [SerializeField] private List<Dial> Dials;
+        [SerializeField] private List<PressureGauge> gauges;
+        [SerializeField] private List<Dial> dials;
         private string _solutionCombination = string.Empty;
-        bool dialogueplayed = false;
-        void Start()
-        {
-            //SetSolution();
-        }
-        
+        private bool _dialoguePlayed;
+
         void Update()
         {
             SetGauges();
-            if (PressureGaugesSolved() && !dialogueplayed)
+            if (PressureGaugesSolved() && !_dialoguePlayed)
             {
-                DialogueManager dialoguemanager = FindObjectOfType<DialogueManager>();
-                dialoguemanager.PlayDialogue(dialoguemanager.dialogue4);
-                dialogueplayed = true;
+                DialogueManager dialogueManager = FindObjectOfType<DialogueManager>();
+                dialogueManager.PlayDialogue(dialogueManager.dialogue4);
+                _dialoguePlayed = true;
             }
         }
 
         private void SetGauges()
         {
             int i = 0;
-            foreach (Dial dial in Dials)
+            foreach (Dial dial in dials)
             {
-                Gauges[i].SetValue(dial.GetValue());
+                gauges[i].SetValue(dial.GetValue());
                 i++;
             }
         }
@@ -41,7 +35,7 @@ namespace Gameplay.Puzzles.PressureGauges
         private void SetSolution()
         {
             int i = 0;
-            foreach (PressureGauge g in Gauges)
+            foreach (PressureGauge g in gauges)
             {
                 string newTarget = _solutionCombination[i].ToString() + _solutionCombination[i + 1].ToString();
                 g.SetTargetValue(newTarget);
@@ -55,10 +49,10 @@ namespace Gameplay.Puzzles.PressureGauges
             SetSolution();
         }
 
-        private bool PressureGaugesSolved()
+        public bool PressureGaugesSolved()
         {
             bool allSolved = true;
-            foreach (PressureGauge g in Gauges)
+            foreach (PressureGauge g in gauges)
             {
                 if (!g.GetSolved())
                 {

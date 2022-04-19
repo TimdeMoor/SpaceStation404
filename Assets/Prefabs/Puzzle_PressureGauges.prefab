@@ -157,15 +157,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a3a84a7e81a7a84f99de46dd5314444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Gauges:
+  gauges:
   - {fileID: 7634298989670818709}
   - {fileID: 2680877799679649348}
   - {fileID: 316372188531044539}
-  Dials:
+  dials:
   - {fileID: 4883676437475973844}
   - {fileID: 8220185174629293506}
   - {fileID: 1627542523601702614}
-  _solutionCombination: 445566
 --- !u!1001 &448905046131467054
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -467,3 +466,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vCamParent: {fileID: 3626858454707980164}
   playerParent: {fileID: 4348129433387476165, guid: 6b92a287c27d90b489ec7fb9789f2d1b, type: 3}
+  goBackText: {fileID: 0}
+  crossHair: {fileID: 0}
+  _playerCollider: {fileID: 0}

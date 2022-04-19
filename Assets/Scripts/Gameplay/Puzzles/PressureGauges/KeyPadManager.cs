@@ -13,7 +13,6 @@ namespace Gameplay.Puzzles.PressureGauges
         [SerializeField] private TextMeshPro keyPadScreenText; 
         [SerializeField] private GameObject greenIndicator;
         [SerializeField] private GameObject redIndicator;
-        [SerializeField] private GameObject door;
         [SerializeField] private DialogueManager dialogue;
 
         [SerializeField] private string _solution;
@@ -83,7 +82,6 @@ namespace Gameplay.Puzzles.PressureGauges
             {
                 PlayCorrectSound();
                 DisableButtons();
-                Destroy(door);
                 keyPadScreenText.text = "Correct";
                 
                 
@@ -103,9 +101,17 @@ namespace Gameplay.Puzzles.PressureGauges
         private void DisableButtons()
         {
             //Disable the buttonColliders from the keypadButtons
-            foreach (KeyPadKey handler in GetComponentsInChildren<KeyPadKey>())
+            foreach (KeyPadKey key in GetComponentsInChildren<KeyPadKey>())
             {
-                handler.gameObject.GetComponent<Collider>().enabled = false;
+                key.gameObject.GetComponent<Collider>().enabled = false;
+            }
+        }
+
+        private void EnableButtons()
+        {
+            foreach (KeyPadKey key in GetComponentsInChildren<KeyPadKey>())
+            {
+                key.gameObject.GetComponent<Collider>().enabled = true;
             }
         }
 
@@ -147,6 +153,21 @@ namespace Gameplay.Puzzles.PressureGauges
         {
             _keypadAudio.clip = codeCorrectSound;
             _keypadAudio.PlayDelayed(.1f);
+        }
+
+        public void DisableKeypad()
+        {
+            DisableButtons();
+        }
+
+        public void EnableKeypad()
+        {
+            EnableButtons();
+        }
+
+        public bool Solved()
+        {
+            return _solved;
         }
     }
 }

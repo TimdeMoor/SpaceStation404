@@ -1,6 +1,8 @@
+using Gameplay.Puzzles.Shared;
 using Gameplay.Puzzles.Valves;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Gameplay.Puzzles.PressureGauges
@@ -9,44 +11,50 @@ namespace Gameplay.Puzzles.PressureGauges
     {
         [Range(100000, 999999)][SerializeField] private int keyPadSolutionCode = 123456;
         [SerializeField] private bool isRandomCode;
-        private KeyPadManager _keypad;
-        private PressureGaugePuzzleManager _pressureGauges;
-        private DialController _dials;
-        private PipeManager _pipes;
-
+        [SerializeField] private KeyPadManager keypad;
+        [SerializeField] private PressureGaugePuzzleManager pressureGauges;
+        [SerializeField] private DialController dials;
+        [SerializeField] private PipeManager pipes;
+        [SerializeField] private KeyPadManager hexaKeypad;
+        [SerializeField] private GameObject door;
         void Start()
         {
-            _keypad = GetComponentInChildren<KeyPadManager>();
-            _pressureGauges = GetComponentInChildren<PressureGaugePuzzleManager>();
-            _pipes = GetComponentInChildren<PipeManager>();
-            _dials = GetComponentInChildren<DialController>();
-
+            keypad = GetComponentInChildren<KeyPadManager>();
+            pressureGauges = GetComponentInChildren<PressureGaugePuzzleManager>();
+            dials = GetComponentInChildren<DialController>();
+            
             if (isRandomCode)
             {
+                keyPadSolutionCode = GetRandomCode();
                 //check for 42069 easterEgg conflict
                 while (keyPadSolutionCode.ToString().StartsWith("42069"))
                 {
                     keyPadSolutionCode = GetRandomCode();
                 }
             }
-        
-            _keypad.SetSolution(keyPadSolutionCode.ToString());
-            _pressureGauges.SetSolution(keyPadSolutionCode.ToString());
+            print(keyPadSolutionCode);
+            keypad.SetSolution(keyPadSolutionCode.ToString());
+            pressureGauges.SetSolution(keyPadSolutionCode.ToString());
+
+            DisablePuzzles();
         }
 
         void Update()
         {
             CheckPipesSolved();
+            CheckGaugesSolved();
+            CheckHexaSolved();
+            CheckKeyPadSolved();
         }
 
-        int GetRandomCode()
+        private int GetRandomCode()
         {
             return Random.Range(100000, 999999);
         }
 
         private void CheckPipesSolved()
         {
-            if (_pipes.GetSolvedState())
+            if (pipes.GetSolvedState())
             {
                 ActivateDials();
             }
@@ -56,14 +64,72 @@ namespace Gameplay.Puzzles.PressureGauges
             }
         }
 
+        private void CheckGaugesSolved()
+        {
+            if (!pressureGauges.PressureGaugesSolved()) return;
+            hexaKeypad.EnableKeypad();
+        }
+
+        private void CheckHexaSolved()
+        {
+            if (!hexaKeypad.Solved()) return;
+            ActivateKeyPad();
+            DeActivateHexKeypad();
+        }
+
+        private void CheckKeyPadSolved()
+        {
+            if (keypad.Solved())
+            {
+                Destroy(door);
+            }
+        }
+
         private void ActivateDials()
         {
-            _dials.Activate();
+            dials.Activate();
         }
 
         private void DeActivateDials()
         {
-            _dials.Deactivate();
+            dials.Deactivate();
+        }
+
+        private void DeActivateHexKeypad()
+        {
+            hexaKeypad.DisableKeypad();
+        }
+
+        private void ActivateHexKeypad()
+        {
+            hexaKeypad.EnableKeypad();
+        }
+
+        private void ActivateGauges()
+        {
+            dials.Activate();
+        }
+
+        private void DeActivateGauges()
+        {
+            dials.Deactivate();
+        }
+
+        private void DeActivateKeyPad()
+        {
+            keypad.DisableKeypad();
+        }
+
+        private void ActivateKeyPad()
+        {
+            keypad.EnableKeypad();
+        }
+
+        private void DisablePuzzles()
+        {
+            DeActivateKeyPad();
+            DeActivateHexKeypad();
+            //DeActivateGauges();
         }
     }
 }
