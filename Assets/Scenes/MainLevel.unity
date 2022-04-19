@@ -3502,7 +3502,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734549542}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -1.874, y: 0.672, z: -4.658}
+  m_LocalPosition: {x: -1.894, y: 0.672, z: -3.543}
   m_LocalScale: {x: 0.6006108, y: 0.76553833, z: 0.76553833}
   m_Children: []
   m_Father: {fileID: 1787066792}
@@ -4530,13 +4530,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979955402}
-  m_LocalRotation: {x: 0.336922, y: -0.62167805, z: 0.336922, w: 0.62167805}
-  m_LocalPosition: {x: -2.155, y: 0.865, z: -3.468}
+  m_LocalRotation: {x: 0.4302145, y: -0.5611733, z: 0.5611733, w: 0.4302145}
+  m_LocalPosition: {x: -1.787, y: 0.665, z: -4.469}
   m_LocalScale: {x: 0.5738564, y: 0.59868217, z: 0.73143715}
   m_Children: []
   m_Father: {fileID: 1787066792}
   m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 56.911, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: -105.05, z: 0}
 --- !u!64 &979955404
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -8636,7 +8636,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6675bd5202b2a8a4ba88760dac5e265d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioSource: {fileID: 0}
   dialogue1and2: {fileID: 8300000, guid: 4107d5151a84bdc4f9ed31839df850e9, type: 3}
   dialogue3: {fileID: 8300000, guid: 9a10d6ed318b8f54fb4d421c462b64d3, type: 3}
   dialogue4: {fileID: 8300000, guid: 19c42b8c4becb404d873e0490aad8ec2, type: 3}
