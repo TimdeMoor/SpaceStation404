@@ -3,7 +3,11 @@ guid: 6675bd5202b2a8a4ba88760dac5e265d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - dialogue1and2: {fileID: 8300000, guid: 4107d5151a84bdc4f9ed31839df850e9, type: 3}
+  - dialogue3: {fileID: 8300000, guid: 9a10d6ed318b8f54fb4d421c462b64d3, type: 3}
+  - dialogue4: {fileID: 8300000, guid: 19c42b8c4becb404d873e0490aad8ec2, type: 3}
+  - creditdialogue: {fileID: 8300000, guid: 2bebe41343f28a944ae0f99faae60ae6, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
