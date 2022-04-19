@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Menus
 {
@@ -23,7 +24,6 @@ namespace Menus
             credits.Add(new CreditsEntry("Testers", new List<string>{"Ertan", "Sam", "Joey", "Tom"}));
             credits.Add(new CreditsEntry("Music used", new List<string>{"the introvert - Michael Kobrin", "Piano Moment - Zakhar Valaha", "Ukraine Win (Kitty) - Lesfm"}));
             credits.Add(new CreditsEntry("Food Provider", new List<string>{"Jumbo"}));
-           
 
 
             credits.Add(new CreditsEntry("Thanks for playing!", new List<string>{""}));
@@ -101,7 +101,7 @@ namespace Menus
         private void QuitGame()
         {
             print("Stop");
-            Application.Quit();
+            SceneManager.LoadScene(0);
         }
     }
 }

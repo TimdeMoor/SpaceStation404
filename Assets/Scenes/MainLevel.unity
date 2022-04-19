@@ -8636,6 +8636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6675bd5202b2a8a4ba88760dac5e265d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _audioSource: {fileID: 0}
   dialogue1and2: {fileID: 8300000, guid: 4107d5151a84bdc4f9ed31839df850e9, type: 3}
   dialogue3: {fileID: 8300000, guid: 9a10d6ed318b8f54fb4d421c462b64d3, type: 3}
   dialogue4: {fileID: 8300000, guid: 19c42b8c4becb404d873e0490aad8ec2, type: 3}

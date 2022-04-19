@@ -758,7 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15195b42f59f91644a3f31c8cd419986, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scrollSpeed: 40
+  scrollSpeed: 38
   headerFontSize: 24
   listFontSize: 18
   lineSpacing: 30
