@@ -1,23 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueManager : MonoBehaviour
+namespace Gameplay.General
 {
-    AudioSource audiosource;
-    [SerializeField] public AudioClip dialogue1and2;
-    [SerializeField] public AudioClip dialogue3;
-    [SerializeField] public AudioClip dialogue4;
-
-    private void Start()
+    public class DialogueManager : MonoBehaviour
     {
-        audiosource = GetComponent<AudioSource>();
-        PlayDialogue(dialogue1and2);
-    }
+        AudioSource _audioSource;
+        [SerializeField] public AudioClip dialogue1and2;
+        [SerializeField] public AudioClip dialogue3;
+        [SerializeField] public AudioClip dialogue4;
 
-    public void PlayDialogue(AudioClip audioClip)
-    {
-        audiosource.clip = audioClip;
-        audiosource.Play();
+        private void Start()
+        {
+            _audioSource = GetComponent<AudioSource>();
+            PlayDialogue(dialogue1and2);
+        }
+
+        public void PlayDialogue(AudioClip audioClip)
+        {
+            _audioSource.clip = audioClip;
+            _audioSource.Play();
+        }
     }
 }

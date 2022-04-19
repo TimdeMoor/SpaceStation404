@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Gameplay.General;
 using UnityEngine;
 
 namespace Gameplay.Puzzles.PressureGauges
