@@ -31,8 +31,7 @@ namespace Menus
             credits.Add(new CreditsEntry("Thanks for playing!", new List<string>{""}));
 
             CreateCredits();
-        
-            print(_currentLine * 1f);
+            
             Invoke(nameof(QuitGame), _currentLine * 1f);
         }
     
@@ -102,7 +101,6 @@ namespace Menus
 
         private void QuitGame()
         {
-            print("Stop");
             SceneManager.LoadScene(0);
         }
     }

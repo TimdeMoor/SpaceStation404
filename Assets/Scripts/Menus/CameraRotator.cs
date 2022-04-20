@@ -15,6 +15,7 @@ namespace Menus
         
         void Start()
         {
+            Cursor.lockState = CursorLockMode.None;
             _targetPosition = target.transform.position;
         }
         

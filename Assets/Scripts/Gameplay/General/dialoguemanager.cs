@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Gameplay.General
 {
-    public class DialogueManager : MonoBehaviour
+    public class dialoguemanager : MonoBehaviour
     {
         AudioSource _audioSource;
         [SerializeField] public AudioClip dialogue1and2;

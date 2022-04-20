@@ -32,7 +32,6 @@ namespace Gameplay.Puzzles.PressureGauges
                     keyPadSolutionCode = GetRandomCode();
                 }
             }
-            print(keyPadSolutionCode);
             keypad.SetSolution(keyPadSolutionCode.ToString());
             pressureGauges.SetSolution(keyPadSolutionCode.ToString());
 

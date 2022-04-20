@@ -9,7 +9,7 @@ namespace Gameplay.General
         void Start()
         {
             _backGroundMusic = GetComponentInChildren<Dummy>().gameObject.GetComponent<AudioSource>();
-            _dialogueManager = GetComponentInChildren<DialogueManager>().gameObject.GetComponent<AudioSource>();
+            _dialogueManager = GetComponentInChildren<dialoguemanager>().gameObject.GetComponent<AudioSource>();
         }
 
         void Update()
