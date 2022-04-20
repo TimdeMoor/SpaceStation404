@@ -101,6 +101,11 @@ namespace Menus
 
         private void QuitGame()
         {
+<<<<<<< HEAD
+=======
+            print("Stop");
+            Cursor.lockState = CursorLockMode.None;
+>>>>>>> main
             SceneManager.LoadScene(0);
         }
     }
